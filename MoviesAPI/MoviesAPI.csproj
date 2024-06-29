@@ -10,8 +10,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UserSecretsId>9ca3ccb8-6b40-41df-be9a-f928250e2a12</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <UserSecretsId>81101d84-4576-4426-86f5-1f8ad5468fe4</UserSecretsId>
   </PropertyGroup>
 
 

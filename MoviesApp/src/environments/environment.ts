@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:5001/api/'
-  //apiUrl: 'http://moviesapi.eastus.azurecontainer.io/api/'
+  // apiUrl: 'http://{{Azure_CR_Url}}/api/'
 };
 
 /*

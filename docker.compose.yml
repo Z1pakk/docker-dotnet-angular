@@ -1,0 +1,24 @@
+services:
+  moviesapi:
+    image: ${DOCKER_REGISTRY}movies-api:dev
+    container_name: movies-api
+  
+  moviesapp:
+    image: ${DOCKER_REGISTRY}movies-app:dev
+    container_name: movies-app
+
+# to start container by docker-compose: .\deploy.cmd
+# stop: docker -f docker.compose.yml down
+
+# push to docker hub:
+#  docker tag movies-app:dev zipakk/movies-app:dev
+#  docker tag movies-api:dev zipakk/movies-api:dev
+#  docker push zipakk/movies-api:dev
+#  docker push zipakk/movies-api:dev
+
+# push to Azure CR:
+# docker login -u <UserName> -p <password>
+# docker tag movies-api:dev movies.azurecr.io/movies-api:dev
+# docker tag movies-app:dev movies.azurecr.io/movies-app:dev
+# docker push movies.azurecr.io/movies-api:dev
+# docker push movies.azurecr.io/movies-app:dev
