@@ -1,0 +1,28 @@
+name: CI
+
+on: 
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [develop]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+     
+      # Using docker login to authenticate into Azure CR
+      - name: Docker login
+        uses: azure/docker-login@v2
+        with:
+          login-server: ${{secrets.CONTAINER_REGISTRY_NAME}}
+          username: ${{secrets.CONTAINER_REGISTRY_USERNAME}}
+          password: ${{secrets.CONTAINER_REGISTRY_PASSWORD}}
+      
+      # Build and push a container to the container registry
+      - name: Build and push to the container registry
+        run: |
+            docker build --file=MoviesAPI/Dockerfile -t ${{secrets.CONTAINER_REGISTRY_NAME}}/${{secrets.IMAGE_NAME}}:${{github.sha}} .
+            docker push ${{secrets.CONTAINER_REGISTRY_NAME}}/${{secrets.IMAGE_NAME}}:${{github.sha}}
