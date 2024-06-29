@@ -11,10 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@4
+        uses: actions/checkout@v4
      
       # Using docker login to authenticate into Azure CR
       - name: Docker login
+        uses: azure/docker-login@v2
         with:
           login-server: ${{secrets.CONTAINER_REGISTRY_NAME}}
           username: ${{secrets.CONTAINER_REGISTRY_USERNAME}}
