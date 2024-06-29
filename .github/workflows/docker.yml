@@ -24,5 +24,5 @@ jobs:
       # Build and push a container to the container registry
       - name: Build and push to the container registry
         run: |
-            docker build --file=MoviesAPI/Dockerfile -t ${{secrets.CONTAINER_REGISTRY_NAME}}/${{env.IMAGE_NAME}}:${{github.sha}} .
-            docker push ${{secrets.CONTAINER_REGISTRY_NAME}}/${{env.IMAGE_NAME}}:${{github.sha}}
+            docker build --file=MoviesAPI/Dockerfile -t ${{secrets.CONTAINER_REGISTRY_NAME}}/${{secrets.IMAGE_NAME}}:${{github.sha}} .
+            docker push ${{secrets.CONTAINER_REGISTRY_NAME}}/${{secrets.IMAGE_NAME}}:${{github.sha}}
